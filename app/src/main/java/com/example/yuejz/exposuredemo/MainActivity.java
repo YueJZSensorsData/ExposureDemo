@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private final static  String  TAG="ScrollView";
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,41 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mScrollView = findViewById(R.id.scrollView);
         mButton1.setOnClickListener(this);
         mButton2.setOnClickListener(this);
-
-
-//        boolean temp = ViewUtil.isVisible(mButton3);
-//        Log.d(TAG, String.valueOf(temp));
-        Rect scrollBounds = new Rect();
-        mScrollView.getHitRect(scrollBounds);
-        mScrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
-            @Override
-            public void onScrollChanged() {
-//                // 可以先判断ScrollView中的mView是不是在屏幕中可见
-//                Rect scrollBounds = new Rect();
-//                mScrollView.getHitRect(scrollBounds);
-//                if (!mButton3.getLocalVisibleRect(scrollBounds)) {
-//                    return;
-//                }
-//                if (isVisibleLocal(mButton3)){
-//
-////                    Log.d(TAG, "可见");
-//                }
-            }
-        });
-//        mScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-//            @Override
-//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-//
-//            }
-//        });
-
-//        mScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-//            @Override
-//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-//                boolean temp = ViewUtil.isVisible(mButton3);
-//                Log.d(TAG, String.valueOf(temp));
-//            }
-//        });
+        mButton3.setOnClickListener(this);
 
         mScrollView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -85,12 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
 
     @Override
     public void onClick(View v) {
@@ -103,8 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent1 = new Intent(MainActivity.this, RecyclerViewActivity.class);
                 startActivity(intent1);
                 break;
+            default:
+                break;
         }
     }
-
 
 }
