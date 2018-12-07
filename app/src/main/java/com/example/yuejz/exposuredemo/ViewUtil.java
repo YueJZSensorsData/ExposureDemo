@@ -10,8 +10,8 @@ import android.view.View;
 public class ViewUtil {
     private static final String TAG = "ViewUtil";
     public static boolean isVisible(View view) {
-        if (view.getVisibility() == View.INVISIBLE) {
-            Log.d(TAG, "INVISIBLE");
+        if (view.getVisibility() != View.VISIBLE ) {
+            Log.d(TAG, "VISIBLE");
             return false;
         }
         if (!view.isShown()) {
