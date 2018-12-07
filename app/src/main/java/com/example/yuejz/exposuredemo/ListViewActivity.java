@@ -21,7 +21,6 @@ public class ListViewActivity extends AppCompatActivity {
 
     private String[] data ;
     private ListView mListView;
-
     private int mStart;
     private int mEnd;
     //是否第一次进入
@@ -40,8 +39,6 @@ public class ListViewActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(ListViewActivity.this, android.R.layout.simple_list_item_1,data);
         mListView = findViewById(R.id.list_view);
         mListView.setAdapter(adapter);
-
-
 
         //这里还需要注意第一次打开 ListView 时，onScrollStateChanged 函数不会调用，
         // 但是 onScroll 会调用
@@ -65,6 +62,7 @@ public class ListViewActivity extends AppCompatActivity {
                 }
 
             }
+
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount,
                                  int totalItemCount) {

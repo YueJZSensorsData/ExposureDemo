@@ -38,8 +38,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter = new HomeAdapter());
-      //  LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
-     //   mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -118,10 +116,10 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
             TextView tv;
 
-            public MyViewHolder(View view)
+            MyViewHolder(View view)
             {
                 super(view);
-                tv = (TextView) view.findViewById(R.id.id_num);
+                tv = view.findViewById(R.id.id_num);
             }
         }
     }
