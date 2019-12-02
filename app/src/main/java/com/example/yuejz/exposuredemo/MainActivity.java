@@ -36,11 +36,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButton2.setOnClickListener(this);
         mButton3.setOnClickListener(this);
 
+        //进入页面时候，判断是否曝光
+        mButton3.post(new Runnable(){
+            @Override
+            public void run() {
+                boolean temp = ViewUtil.isVisible(mButton3);
+                Log.d(TAG, String.valueOf(temp));
+            }
+        });
+
         mScrollView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_UP:
+                        //调用方法，判断是否曝光
                         boolean temp = ViewUtil.isVisible(mButton3);
                         Log.d(TAG, String.valueOf(temp));
                         break;
